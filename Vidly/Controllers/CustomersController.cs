@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
+using System.Data.Entity;
 
 namespace Vidly.Controllers
 {
@@ -30,7 +31,8 @@ namespace Vidly.Controllers
         {
              //prepares conection with db storing customers
              //connection made in view when object os iterated over unless .Tolist is used
-            var customers = _context.Customers.ToList();
+             //Include - is called Eager loading - calls the necessary db to retrieve data
+            var customers = _context.Customers.Include(c => c.MembershipType).ToList();
 
                return View(customers);
 

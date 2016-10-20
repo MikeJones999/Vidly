@@ -195,6 +195,18 @@
     <Compile Include="Migrations\201610191410193_ApplyAnnotationsToCustomer.Designer.cs">
       <DependentUpon>201610191410193_ApplyAnnotationsToCustomer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610202020079_IncludeMembershipTypeEagerLoad.cs" />
+    <Compile Include="Migrations\201610202020079_IncludeMembershipTypeEagerLoad.Designer.cs">
+      <DependentUpon>201610202020079_IncludeMembershipTypeEagerLoad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610202027202_AddMembershipTypeNameToDB.cs" />
+    <Compile Include="Migrations\201610202027202_AddMembershipTypeNameToDB.Designer.cs">
+      <DependentUpon>201610202027202_AddMembershipTypeNameToDB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610202031579_PopulateMembershipTypeNameToDB.cs" />
+    <Compile Include="Migrations\201610202031579_PopulateMembershipTypeNameToDB.Designer.cs">
+      <DependentUpon>201610202031579_PopulateMembershipTypeNameToDB.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -295,6 +307,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610191410193_ApplyAnnotationsToCustomer.resx">
       <DependentUpon>201610191410193_ApplyAnnotationsToCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610202020079_IncludeMembershipTypeEagerLoad.resx">
+      <DependentUpon>201610202020079_IncludeMembershipTypeEagerLoad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610202027202_AddMembershipTypeNameToDB.resx">
+      <DependentUpon>201610202027202_AddMembershipTypeNameToDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610202031579_PopulateMembershipTypeNameToDB.resx">
+      <DependentUpon>201610202031579_PopulateMembershipTypeNameToDB.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
