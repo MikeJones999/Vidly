@@ -18,6 +18,9 @@ namespace Vidly.Models
 
         public MembershipType MembershipType { get; set; }
 
+        
+        public DateTime? Birthdate { get; set; }
+
         //foreign key
         public byte MembershipTypeId { get; set; }
     }
