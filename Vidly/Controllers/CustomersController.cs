@@ -67,10 +67,32 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(Customer Customer)
+        public ActionResult Save(Customer customer)
         {
-            _context.Customers.Add(Customer);
+            //if customer is new and thus their id == 0
+            if (customer.Id == 0)
+            {
+                //add customer to database
+                _context.Customers.Add(customer);
+            }
+            else
+            {
+                //locate and match the customer from the DB
+                var customerInDb = _context.Customers.Single(c => c.Id == customer.Id);
+
+
+                //long way but more secure to map new properties
+                //possibly look at automapper program
+                customerInDb.Name = customer.Name;
+                customerInDb.Birthdate = customer.Birthdate;
+                customerInDb.MembershipType = customer.MembershipType;
+                customerInDb.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
+
+                
+             }
+
             _context.SaveChanges();
+
             return RedirectToAction("Index", "Customers");
         }
 

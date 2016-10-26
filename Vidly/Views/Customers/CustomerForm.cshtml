@@ -9,7 +9,7 @@
 
 
 <!-- upon submit being clicked - the create method in customer controller is called-->
-@using (Html.BeginForm("Create", "Customers"))
+@using (Html.BeginForm("Save", "Customers"))
 {
     <div class="form-group">
 
@@ -39,7 +39,10 @@
         </div>
     </div>
 
-        <button type="submit" class"btn btn-primary"> Save</button>
+    <!-- adds an id of customer to b checked in controller-->
+    @Html.HiddenFor(m => m.Customer.Id);
+
+    <button type="submit" class"btn btn-primary"> Save</button>
 
 }
 
