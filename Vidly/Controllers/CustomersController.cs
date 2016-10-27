@@ -69,6 +69,22 @@ namespace Vidly.Controllers
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
+            //if the form is incomplete or data not valid (as per data annotations in Customer.cs) - resend them to list of customers
+            if(!ModelState.IsValid)
+            {
+
+                var viewModel = new CustomerFormViewModel
+                {
+                    Customer = customer,
+                    MembershipTypes = _context.MembershipTypes.ToList()
+
+                };
+
+             return View("CustomerForm", viewModel);
+            }
+
+
+
             //if customer is new and thus their id == 0
             if (customer.Id == 0)
             {
