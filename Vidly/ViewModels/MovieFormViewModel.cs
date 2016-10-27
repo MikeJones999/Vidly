@@ -14,5 +14,21 @@ namespace Vidly.ViewModels
         public Movie Movie { get; set; }
 
 
+        public string title
+        {
+            get
+            {
+                if (Movie != null && Movie.Id != 0)
+                {
+                    return "Edit Movie";
+                }
+
+                return "New Movie";
+
+            }
+
+        }
+
+
     }
 }

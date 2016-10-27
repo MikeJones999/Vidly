@@ -130,7 +130,7 @@ namespace Vidly.Controllers
 
         }
 
-
+        [HttpPost]
         public ActionResult Save(Movie movie)
         {
        
