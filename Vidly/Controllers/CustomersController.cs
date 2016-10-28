@@ -70,9 +70,11 @@ namespace Vidly.Controllers
 
         /**
          * Method to save New Customers to DB or to update an amended Customer in DB 
+         * .Net handles the session token with the validateAntiforgerytoken - must specify this in customerForm.html
          * 
          */
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Customer customer)
         {
             //if the form is incomplete or data not valid (as per data annotations in Customer.cs) - resend them to list of customers
