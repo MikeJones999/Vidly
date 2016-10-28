@@ -53,3 +53,10 @@
 
 }
 
+<!-- client side validation - does the above on clients browser - much faster
+    The validation requirements are present when read by client and can be handed locally before being sent to server
+    ***However only works with standard data annotations in .net - thus our dob check wont work-->
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
