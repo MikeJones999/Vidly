@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using Vidly.Models;
 using Vidly.ViewModels;
 using System.Data.Entity;
+using System.Diagnostics;
 
 namespace Vidly.Controllers
 {
@@ -59,6 +60,7 @@ namespace Vidly.Controllers
 
             var viewModel = new CustomerFormViewModel
             {
+                Customer = new Customer(),
                 MembershipTypes = membershipTypes
               
             };
@@ -66,6 +68,10 @@ namespace Vidly.Controllers
             return View("CustomerForm", viewModel);
         }
 
+        /**
+         * Method to save New Customers to DB or to update an amended Customer in DB 
+         * 
+         */
         [HttpPost]
         public ActionResult Save(Customer customer)
         {
@@ -80,6 +86,7 @@ namespace Vidly.Controllers
 
                 };
 
+             //Debug.WriteLine("***DEBUG*** Invalid completion of form");
              return View("CustomerForm", viewModel);
             }
 
@@ -113,7 +120,11 @@ namespace Vidly.Controllers
         }
 
 
-
+        /**
+         * Method to save update of an amended Customer in DB 
+         * passes found Customer from db into View to be shown in CustomerForm.Html
+         * 
+         */
         public ActionResult Edit(int id)
         {
             var customer = _context.Customers.SingleOrDefault(c => c.Id == id);

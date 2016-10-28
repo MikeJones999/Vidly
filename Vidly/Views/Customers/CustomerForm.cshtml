@@ -11,6 +11,10 @@
 <!-- upon submit being clicked - the create method in customer controller is called-->
 @using (Html.BeginForm("Save", "Customers"))
 {
+    <!-- Provides a summary of issues at top of screen-->
+    @Html.ValidationSummary()
+
+
     <div class="form-group">
 
         @Html.LabelFor(m => m.Customer.Name)

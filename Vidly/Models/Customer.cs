@@ -10,7 +10,8 @@ namespace Vidly.Models
     {
         public int Id { get; set; }
 
-        [Required]
+        //required method with the validation warning - this is optional
+        [Required (ErrorMessage = "please enter a customer's name")]
         [StringLength (255)]
         public string Name { get; set; }
 
@@ -20,6 +21,7 @@ namespace Vidly.Models
 
         
         [Display(Name = "Date of Birth")]
+        [Min18YearsIfAMember]
         public DateTime? Birthdate { get; set; }
 
         //foreign key
