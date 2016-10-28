@@ -11,7 +11,7 @@ namespace Vidly.Models
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            //check select membershiptype for contract or not
+            //check selected membershiptype for contract or not
             var customer = (Customer)validationContext.ObjectInstance;
 
             if (customer.MembershipTypeId == MembershipType.Unknown || customer.MembershipTypeId == MembershipType.PayAsYouGo)

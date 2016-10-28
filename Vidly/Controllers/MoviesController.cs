@@ -103,6 +103,7 @@ namespace Vidly.Controllers
 
             var viewModel = new MovieFormViewModel
             {
+                Movie = new Movie(),
                 Genres = genres
 
             };
@@ -131,9 +132,28 @@ namespace Vidly.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(Movie movie)
         {
-       
+
+
+            //if the form is incomplete or data not valid (as per data annotations in Customer.cs) - resend them to list of customers
+            //This is especially necessary for non standard validation checks 
+            if (!ModelState.IsValid)
+            {
+
+                var viewModel = new MovieFormViewModel
+                {
+                    Movie = movie,
+                    Genres = _context.Genres.ToList()
+
+                };
+
+                //Debug.WriteLine("***DEBUG*** Invalid completion of form");
+                return View("MovieForm", viewModel);
+            }
+
+
             if (movie.Id == 0)
             {
                 //add new movie to database
